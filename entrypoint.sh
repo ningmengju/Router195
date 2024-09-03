@@ -93,7 +93,7 @@ else
 		make \
 			BUILD_LOG="$BUILD_LOG" \
 			IGNORE_ERRORS="$IGNORE_ERRORS" \
-			"package/$PKG/check" FIXUP="${FIXUP:-0}" V=s 2>&1 | \
+			"package/$PKG/check" ${FIXUP:+FIXUP=$FIXUP} V=s 2>&1 | \
 				tee logtmp
 		endgroup
 
