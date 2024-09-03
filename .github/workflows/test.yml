@@ -41,14 +41,14 @@ jobs:
         run: find artifacts/logs/package/feeds/packages/ -mindepth 2 -maxdepth 2 -name compile.txt -type f | grep .
 
   try_options:  # To test options such as FIXUP
-    name: Options
+    name: Options (FIXUP=${{ matrix.fixup }})
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
       matrix:
         release:
           - master
-        arch:
+        arch: # arch and release variants are tested above, so limit these here
           - arm_cortex-a15_neon-vfpv4
         fixup:
           - 1
