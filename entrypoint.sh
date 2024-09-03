@@ -90,6 +90,13 @@ else
 		endgroup
 
 		group "make package/$PKG/check"
+		if [ "${FIXUP+defined}" ] && [ "$FIXUP" -eq 1 ]; then
+			echo "FIXUP=1 is set, so PKG_MIRROR_HASH might be generated"
+			: # FIXUP=1 is set. Do nothing. It will get used below.
+		else
+		    # In all other cases, avoid mention of FIXUP to build scripts.
+			unset FIXUP
+		fi
 		make \
 			BUILD_LOG="$BUILD_LOG" \
 			IGNORE_ERRORS="$IGNORE_ERRORS" \
