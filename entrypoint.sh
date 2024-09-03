@@ -94,7 +94,7 @@ else
 			echo "FIXUP=1 is set, so PKG_MIRROR_HASH might be generated"
 			: # FIXUP=1 is set. Do nothing. It will get used below.
 		else
-		    # In all other cases, avoid mention of FIXUP to build scripts.
+			# In all other cases, avoid mention of FIXUP to build scripts.
 			unset FIXUP
 		fi
 		make \
@@ -119,7 +119,7 @@ else
 			if [ "${IGNORE_PKG_HASH_ISSUE+defined}" ] && [ "$IGNORE_PKG_HASH_ISSUE" -eq 1 ]; then
 				echo "Ignoring because IGNORE_PKG_HASH_ISSUE=$IGNORE_PKG_HASH_ISSUE"
 			else
-			    exit 1
+				exit 1
 			fi
 		fi
 
