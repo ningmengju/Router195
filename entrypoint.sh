@@ -116,7 +116,11 @@ else
 		badhash_msg+="|HASH is missing,"
 		if grep -qE "$badhash_msg" logtmp; then
 			echo "Package HASH check failed"
-			exit 1
+			if [ "${IGNORE_PKG_HASH_ISSUE+defined}" ] && [ "$IGNORE_PKG_HASH_ISSUE" -eq 1 ]; then
+				echo "Ignoring because IGNORE_PKG_HASH_ISSUE=$IGNORE_PKG_HASH_ISSUE"
+			else
+			    exit 1
+			fi
 		fi
 
 		PATCHES_DIR=$(find /feed -path "*/$PKG/patches")

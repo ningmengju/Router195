@@ -41,7 +41,7 @@ jobs:
         run: find artifacts/logs/package/feeds/packages/ -mindepth 2 -maxdepth 2 -name compile.txt -type f | grep .
 
   try_options:  # To test options such as FIXUP
-    name: Options (FIXUP=${{ matrix.fixup }})
+    name: Options (FIXUP=${{ matrix.fixup }}, IGNORE_PKG_HASH_ISSUE=${{ matrix.ignorehash }})
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
@@ -51,6 +51,9 @@ jobs:
         arch: # arch and release variants are tested above, so limit these here
           - arm_cortex-a15_neon-vfpv4
         fixup:
+          - 1
+          - 0
+        ignorehash:
           - 1
           - 0
 
@@ -68,6 +71,7 @@ jobs:
           FEED_DIR: ${{ github.workspace }}/feed
           PACKAGES: privoxy
           FIXUP: ${{ matrix.fixup }}
+          IGNORE_PKG_HASH_ISSUE: ${{ matrix.ignorehash }}
 
       - name: Verify packages saved
         run: find artifacts/bin/packages/${{ matrix.arch }}/packages/ -maxdepth 1 -name '*.ipk' -type f | grep .
