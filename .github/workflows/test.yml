@@ -49,7 +49,7 @@ jobs:
         release:
           - master
         arch: # arch and release variants are tested above, so limit these here
-          - x86-64
+          - x86_64
         fixup:
           - 1
           - 0
