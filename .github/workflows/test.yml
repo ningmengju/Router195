@@ -69,7 +69,7 @@ jobs:
           ARCH: ${{ matrix.arch }}-${{ matrix.release }}
           ARTIFACTS_DIR: ${{ github.workspace }}/artifacts
           FEED_DIR: ${{ github.workspace }}/feed
-          PACKAGES: uclient-fetch
+          PACKAGES: iwinfo
           FIXUP: ${{ matrix.fixup }}
           IGNORE_PKG_HASH_ISSUE: ${{ matrix.ignorehash }}
 
