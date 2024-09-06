@@ -20,7 +20,7 @@ runs:
       with:
         push: false
         tags: sdk
-        context: $GITHUB_ACTION_PATH
+        context: ${{ github.action_path }}
         build-args: CONTAINER,ARCH
         cache-to: type=gha,mode=max
         cache-from: type=gha
