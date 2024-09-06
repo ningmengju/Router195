@@ -20,13 +20,13 @@ runs:
       with:
         push: false
         tags: sdk
-      context: $GITHUB_ACTION_PATH
-      build-args:
-        - CONTAINER
-        - ARCH
-      cache-to: type=gha,mode=max
-      cache-from: type=gha
-      load: true
+        context: $GITHUB_ACTION_PATH
+        build-args:
+          - CONTAINER
+          - ARCH
+        cache-to: type=gha,mode=max
+        cache-from: type=gha
+        load: true
 
     - run: |
         docker run --rm \
