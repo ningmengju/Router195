@@ -12,10 +12,13 @@ runs:
     - run: sudo chown -R 1000:1000 ${{ steps.inputs.outputs.artifacts_dir }} ${{ steps.inputs.outputs.feed_dir }}
       shell: bash
     -
+      name: Set up Docker QEMU
+      uses: docker/setup-qemu-action@v3
+    -
       name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v3
     -
-      name: Build Docker image
+      name: Build Docker container image
       uses: docker/build-push-action@v6
       with:
         push: false
