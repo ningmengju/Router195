@@ -29,6 +29,8 @@ runs:
           --env PACKAGES \
           --env INDEX \
           --env V \
+          --env FIXUP \
+          --env IGNORE_PKG_HASH_ISSUE \
           -v ${{ steps.inputs.outputs.artifacts_dir }}:/artifacts \
           -v ${{ steps.inputs.outputs.feed_dir }}:/feed \
           sdk

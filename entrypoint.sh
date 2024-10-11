@@ -90,10 +90,17 @@ else
 		endgroup
 
 		group "make package/$PKG/check"
+		if [ "${FIXUP+defined}" ] && [ "$FIXUP" -eq 1 ]; then
+			echo "FIXUP=1 is set, so PKG_MIRROR_HASH might be generated"
+			: # FIXUP=1 is set. Do nothing. It will get used below.
+		else
+			# In all other cases, avoid mention of FIXUP to build scripts.
+			unset FIXUP
+		fi
 		make \
 			BUILD_LOG="$BUILD_LOG" \
 			IGNORE_ERRORS="$IGNORE_ERRORS" \
-			"package/$PKG/check" V=s 2>&1 | \
+			"package/$PKG/check" ${FIXUP:+FIXUP=$FIXUP} V=s 2>&1 | \
 				tee logtmp
 		endgroup
 
@@ -109,7 +116,11 @@ else
 		badhash_msg+="|HASH is missing,"
 		if grep -qE "$badhash_msg" logtmp; then
 			echo "Package HASH check failed"
-			exit 1
+			if [ "${IGNORE_PKG_HASH_ISSUE+defined}" ] && [ "$IGNORE_PKG_HASH_ISSUE" -eq 1 ]; then
+				echo "Ignoring because IGNORE_PKG_HASH_ISSUE=$IGNORE_PKG_HASH_ISSUE"
+			else
+				exit 1
+			fi
 		fi
 
 		PATCHES_DIR=$(find /feed -path "*/$PKG/patches")
