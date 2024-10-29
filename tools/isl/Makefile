@@ -7,7 +7,7 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=isl
-PKG_VERSION:=0.20
+PKG_VERSION:=0.27
 
 PKG_SOURCE_URL:=https://ftp.radix.pro/sources/packages/l/isl
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.xz
