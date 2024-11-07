@@ -8,7 +8,7 @@
 # Description: Build OpenWrt using GitHub Actions
 #
 
-name: Firmware-M2-VIKINGYFY
+name: Firmware-M2-VIKINGYFY-1
 
 on:
   repository_dispatch:
