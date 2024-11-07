@@ -64,6 +64,7 @@ jobs:
         DEBIAN_FRONTEND: noninteractive
       run: |
         sudo -E apt-mark hold grub-efi-amd64-signed
+        sudo -E apt update --allow-unauthenticated
         curl -s https://raw.githubusercontent.com/immortalwrt/build-scripts/master/init_build_environment.sh | sudo bash
         sudo -E apt update
         sudo -E apt -y full-upgrade
