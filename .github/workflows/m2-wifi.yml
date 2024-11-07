@@ -22,7 +22,7 @@ on:
 env:
   REPO_URL: https://github.com/Kurosaki-Senpai/IPQ6000-WIFI-USB3.git
   REPO_BRANCH: wifi
-  FEEDS_CONF: feeds.conf.default
+  FEEDS_CONF: ./scripts/zn-m2/feeds.conf.default
   CONFIG_FILE: m2.cfg
   DIY_P1_SH: ./scripts/zn-m2/diy-part1.sh
   DIY_P2_SH: ./scripts/zn-m2/diy-part2.sh
