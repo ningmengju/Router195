@@ -20,7 +20,7 @@ on:
         default: 'false'
 
 env:
-  REPO_URL: https://github.com/qwerttvv/Router
+  REPO_URL: https://github.com/ningmengju/Router195
   REPO_BRANCH: sdf8057-ipq6000
   FEEDS_CONF: feeds.conf.default
   CONFIG_FILE: config-AX18-sdf8057.cfg
