@@ -12,3 +12,6 @@
 #优先安装 passwall 源
 #./scripts/feeds install -a -f -p passwall_packages
 #./scripts/feeds install -a -f -p passwall_luci
+
+# ttyd免登陆
+sed -i -r 's#/bin/login#/bin/login -f root#g' feeds/packages/utils/ttyd/files/ttyd.config
