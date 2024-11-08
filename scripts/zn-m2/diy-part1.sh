@@ -10,8 +10,9 @@
 # Description: OpenWrt DIY script part 1 (Before Update feeds)
 #
 
-# Uncomment a feed source
-#echo 'src-git custom https://github.com/xiaorouji/openwrt-passwall.git;packages' >>feeds.conf.default
+# Add a feed source
+#echo 'src-git helloworld https://github.com/fw876/helloworld' >>feeds.conf.default
+#echo 'src-git passwall https://github.com/xiaorouji/openwrt-passwall' >>feeds.conf.default
 
 git clone https://github.com/sirpdboy/luci-app-autotimeset package/luci-app-autotimeset
 git clone https://github.com/EOYOHOO/rkp-ipid.git package/rkp-ipid
