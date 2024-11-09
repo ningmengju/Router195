@@ -24,3 +24,6 @@ sed -i '$a net.netfilter.nf_conntrack_max=65535' package/base-files/files/etc/sy
 
 # ttyd免登陆
 sed -i -r 's#/bin/login#/bin/login -f root#g' feeds/packages/utils/ttyd/files/ttyd.config
+
+git clone https://github.com/sirpdboy/luci-app-autotimeset package/luci-app-autotimeset
+git clone https://github.com/EOYOHOO/rkp-ipid.git package/rkp-ipid
