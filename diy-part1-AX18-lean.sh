@@ -16,6 +16,3 @@
 # Add a feed source
 echo 'src-git helloworld https://github.com/fw876/helloworld' >>feeds.conf.default
 # echo 'src-git helloworld https://github.com/sbwml/openwrt_helloworld' >>feeds.conf.default
-
-# 修改luci版本
-sed -i "s|luci.git;openwrt-23.05|luci.git|g" feeds.conf.default
